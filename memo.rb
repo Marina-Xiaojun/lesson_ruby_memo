@@ -15,8 +15,12 @@ puts "拡張子を除いたファイルを入力してください"
 file_name = gets.chomp
 
 puts "メモしたい内容を記入してください"
-puts "完了したらCtrl+Dを押します"
-memo=gets.chomp
+puts "完了したらCtrl+Dを押します。 windowsは改行後Ctrl+Zを押す" 
+memo = readlines.join
+
+#puts "DEBUG"
+#p memo
+
 
 CSV.open("#{file_name}.csv", "w")  { |csv| csv << [memo] }
 break
@@ -27,7 +31,7 @@ puts "拡張子を除いたファイルを入力してください"
 file_name = gets.chomp
 
 puts "メモ入力してください"
-memo=gets.chomp
+memo = readlines.join
 
 CSV.open("#{file_name}.csv", "a")  { |csv| csv << [memo] }
 break
